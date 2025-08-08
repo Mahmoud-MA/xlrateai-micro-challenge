@@ -3,10 +3,7 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const voices = [
   { name: 'sully', voiceId: 'wAGzRVkxKEs8La0lmdrE' },
   { name: 'viraj', voiceId: 'iWNf11sz1GrUE4ppxTOL' },
-  { name: 'Amelia', voiceId: 'ZF6FPAbjXT4488VcRRnw' },
   { name: 'Ryan', voiceId: 'rU18Fk3uSDhmg5Xh41o4' },
-  { name: 'Monica', voiceId: '2zRM7PkgwBPiau2jvVXc' },
-  { name: 'Jessa', voiceId: 'yj30vwTGJxSHezdAGsv9' },
 ];
 
 export default function App() {
@@ -29,6 +26,10 @@ export default function App() {
   }
 
   const suggestReply = async () => {
+    if (!clientMessage) {
+      return alert('Please provide text to generate the speech reply.');
+    }
+
     setLoadingReply(true);
     setReply('');
     setAudioUrl(null);
@@ -78,7 +79,7 @@ export default function App() {
       const url = URL.createObjectURL(blob);
       setAudioUrl(url);
     } catch (e) {
-      alert('TTS error: ' + e.message);
+      alert(e.message);
     } finally {
       setLoadingTts(false);
     }

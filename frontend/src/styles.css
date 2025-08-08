@@ -26,7 +26,6 @@ body {
   border-radius: 16px;
   padding: 30px;
   width: 100%;
-  min-width: 500px;
   max-width: 500px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
@@ -76,7 +75,6 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: 0.3s;
-  width: 100%;
 }
 
 button:hover {
